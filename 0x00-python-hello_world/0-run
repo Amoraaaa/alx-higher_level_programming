@@ -1,4 +1,18 @@
 #!/bin/bash
-python3 $PYFILE
+
+# Check if PYFILE is set and is a file
+if [[ -z "$PYFILE" ]]
+then
+  echo "PYFILE is not set"
+  exit 1
+elif [[ ! -f "$PYFILE" ]]
+then
+  echo "PYFILE is not a file"
+  exit 1
+fi
+
+# Run the Python script
+python3 "$PYFILE"
+
 
 
